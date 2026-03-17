@@ -1,7 +1,12 @@
 self.__BUILD_MANIFEST = {
   "__rewrites": {
     "afterFiles": [],
-    "beforeFiles": [],
+    "beforeFiles": [
+      {
+        "source": "/Ai-Implementatiecanvas//_next/:path+",
+        "destination": "/Ai-Implementatiecanvas/_next/:path+"
+      }
+    ],
     "fallback": []
   },
   "sortedPages": [
