@@ -1,14 +1,4 @@
 import type { NextConfig } from "next";
-
-const repoName = "Ai-Implementatiecanvas";
-
-const nextConfig: NextConfig = {
-  output: "export",
-  basePath: `/${repoName}`,
-  assetPrefix: `/${repoName}/`,
-  images: {
-    unoptimized: true,
-  },
-};
+const nextConfig: NextConfig = {};
 
 export default nextConfig;
