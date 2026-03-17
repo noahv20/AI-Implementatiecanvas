@@ -150,8 +150,8 @@ export default function InteractiveImage() {
   ];
 
   return (
-    <div className="max-w-3xl">
-      <img
+    <div className="max-w-3xl relative">
+      <Image
         src="Schermafbeelding 2026-03-12 104528.png"
         alt="Interactive"
         className="w-full h-auto rounded-lg "
