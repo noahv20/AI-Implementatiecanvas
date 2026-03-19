@@ -56,7 +56,7 @@ export default function Kwaliteit() {
             </div>
             <div className="flex-1 relative h-100 w-full">
               <Image
-                src="/Vision Ai 3.png"
+                src="/Vision AI 3.png"
                 alt="Vision AI"
                 fill
                 className="object-contain"
@@ -144,14 +144,16 @@ export default function Kwaliteit() {
               optimaliseren en kwaliteitsstandaarden verder te verhogen.{" "}
             </p>
           </div>
-          <h3 className="font-semibold">Conclusie</h3>
-          <p>
-            Door Vision-AI toe te passen binnen de kwaliteitsafdeling kunnen
-            productiebedrijven hun processen slimmer, efficiënter en
-            betrouwbaarder maken. In het fietsenbedrijf leidt dit tot minder
-            fouten, hogere productkwaliteit en een meer datagedreven manier van
-            werken.
-          </p>
+          <div className="max-w-1/2">
+            <h3 className="font-semibold">Conclusie</h3>
+            <p>
+              Door Vision-AI toe te passen binnen de kwaliteitsafdeling kunnen
+              productiebedrijven hun processen slimmer, efficiënter en
+              betrouwbaarder maken. In het fietsenbedrijf leidt dit tot minder
+              fouten, hogere productkwaliteit en een meer datagedreven manier
+              van werken.
+            </p>
+          </div>
         </div>
         <div>
           <h2 className="text-xl">
