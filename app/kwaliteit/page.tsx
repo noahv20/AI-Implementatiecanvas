@@ -11,19 +11,17 @@ export default function Kwaliteit() {
 
         <h1 className="flex-none text-center">Kwaliteit</h1>
 
-        <div className="flex-1 ">
-          {/* Leeg, zodat 'Inkoop' in het midden blijft */}
-        </div>
+        <div className="flex-1"></div>
       </header>
 
-      <main className="pl-8 pt-4 ">
-        <div className=" flex flex-col">
-          <h2 className="text-xl font-bold">
+      <main className="m-8">
+        <div className="flex flex-col">
+          <h2 className="text-2xl font-bold">
             Vision AI: visuele kwaliteitscontrole door AI-gestuurde beeldanalyse
           </h2>
           <section className="flex flex-row items-center">
-            <div className="wrap-break-words  flex-1 ">
-              <h3 className="font-semibold">Wat is Vision AI?</h3>
+            <div className="wrap-break-words flex-1">
+              <h3 className="font-semibold text-lg">Wat is Vision AI?</h3>
               <p>
                 Binnen de kwaliteitsafdeling kan kunstmatige intelligentie (AI)
                 worden ingezet als een datagedreven controlesysteem dat
@@ -63,9 +61,9 @@ export default function Kwaliteit() {
               />
             </div>
           </section>
-          <section>
-            <div className="wrap-break-words max-w-1/2">
-              <h3 className="font-semibold">Waarom Vision AI?</h3>
+          <section className="flex flex-row-reverse items-center pb-4">
+            <div className="wrap-break-words flex-1">
+              <h3 className="font-semibold text-lg">Waarom Vision AI?</h3>
               <p>
                 Het toepassen van Vision-AI binnen kwaliteit biedt
                 productiebedrijven meerdere voordelen. Allereerst maakt AI het
@@ -92,68 +90,81 @@ export default function Kwaliteit() {
                 procesoptimalisatie.{" "}
               </p>
             </div>
+            <div className="relative flex-1 h-90 w-auto">
+              <Image
+                src="/Vision AI afbeelding 2.png"
+                alt="vision ai 2"
+                fill
+                className="object-contain"
+              />{" "}
+            </div>
           </section>
-          <div className="wrap-break-words max-w-1/2">
-            <h3 className="font-semibold">Hoe gebruik je Vision AI?</h3>
-            <p>
+          <section className="flex items-start flex-col pb-4">
+            <h3 className="font-semibold text-lg">Hoe gebruik je Vision AI?</h3>
+
+            <p className="max-w-1/2 pb-4">
               De implementatie van Vison-AI binnen de kwaliteitsafdeling
               verloopt stapsgewijs en begint met het identificeren van kritische
               controlepunten in het productieproces. Voor het fietsenbedrijf kan
               dit als volgt worden aangepakt:
             </p>
-            <h4 className="font-semibold">
-              {" "}
-              Stap 1: Bepaal kritische kwaliteitsmomenten
-            </h4>
-            <p>Identificeer waar fouten het meest voorkomen, zoals:</p>
-            <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>Montage van remmen</li>
-              <li>Uitlijning van wielen</li>
-              <li>Bevestiging van onderdelen</li>
-            </ul>
-            <h4 className="font-semibold">
-              Stap 2: Verzamel data via technologie
-            </h4>
-            <p>
-              {" "}
-              Installeer sensoren en camera’s op deze punten om data te
-              verzamelen over:
-            </p>
-            <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>productafmetingen</li>
-              <li>montagekwaliteit</li>
-              <li>procesparameters</li>
-            </ul>
-            <h4 className="font-semibold">Stap 3: Analyse met AI</h4>
-            <p>Gebruik AI-software om deze data te analyseren en:</p>
-            <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>Afwijkingen automatisch te detecteren</li>
-              <li>Patronen te herkennen</li>
-              <li>Risico’s te voorspellen</li>
-            </ul>
-            <h4 className="font-semibold">Stap 4: Integreer in het proces</h4>
-            <p>Koppel het AI-systeem aan de productielijn zodat: </p>
-            <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>Fouten direct worden gesignaleerd</li>
-              <li>Processen automatisch kunnen worden bijgestuurd</li>
-              <li>Operatoren realtime inzicht krijgen</li>
-            </ul>
-            <h4 className="font-semibold">Stap 5: Continu verbeteren</h4>
-            <p>
-              Gebruik de verzamelde data om processen structureel te
-              optimaliseren en kwaliteitsstandaarden verder te verhogen.{" "}
-            </p>
-          </div>
-          <div className="max-w-1/2">
-            <h3 className="font-semibold">Conclusie</h3>
-            <p>
-              Door Vision-AI toe te passen binnen de kwaliteitsafdeling kunnen
-              productiebedrijven hun processen slimmer, efficiënter en
-              betrouwbaarder maken. In het fietsenbedrijf leidt dit tot minder
-              fouten, hogere productkwaliteit en een meer datagedreven manier
-              van werken.
-            </p>
-          </div>
+            <div className="grid grid-cols-3 gap-6">
+              <div className="border-3 rounded-lg border-black">
+                <h4 className="font-semibold">
+                  Stap 1: Bepaal kritische kwaliteitsmomenten
+                </h4>
+                <p>Identificeer waar fouten het meest voorkomen, zoals:</p>
+                <ul className="list-disc list-inside ml-4 space-y-1">
+                  <li>Montage van remmen</li>
+                  <li>Uitlijning van wielen</li>
+                  <li>Bevestiging van onderdelen</li>
+                </ul>
+              </div>
+              <div className="border-3 rounded-lg border-black">
+                <h4 className="font-semibold">
+                  Stap 2: Verzamel data via technologie
+                </h4>
+                <p>
+                  {" "}
+                  Installeer sensoren en camera’s op deze punten om data te
+                  verzamelen over:
+                </p>
+                <ul className="list-disc list-inside ml-4 space-y-1">
+                  <li>productafmetingen</li>
+                  <li>montagekwaliteit</li>
+                  <li>procesparameters</li>
+                </ul>
+              </div>
+              <div className="border-3 rounded-lg border-black">
+                <h4 className="font-semibold">Stap 3: Analyse met AI</h4>
+                <p>Gebruik AI-software om deze data te analyseren en:</p>
+                <ul className="list-disc list-inside ml-4 space-y-1">
+                  <li>Afwijkingen automatisch te detecteren</li>
+                  <li>Patronen te herkennen</li>
+                  <li>Risico’s te voorspellen</li>
+                </ul>
+              </div>
+              <div className="border-3 rounded-lg border-black">
+                <h4 className="font-semibold">
+                  Stap 4: Integreer in het proces
+                </h4>
+                <p>Koppel het AI-systeem aan de productielijn zodat: </p>
+                <ul className="list-disc list-inside ml-4 space-y-1">
+                  <li>Fouten direct worden gesignaleerd</li>
+                  <li>Processen automatisch kunnen worden bijgestuurd</li>
+                  <li>Operatoren realtime inzicht krijgen</li>
+                </ul>
+              </div>
+              <div className="border-3 rounded-lg border-black">
+                <h4 className="font-semibold">Stap 5: Continu verbeteren</h4>
+                <p>
+                  Gebruik de verzamelde data om processen structureel te
+                  optimaliseren en kwaliteitsstandaarden verder te
+                  verhogen.{" "}
+                </p>
+              </div>
+            </div>
+          </section>
         </div>
         <div>
           <h2 className="text-xl">

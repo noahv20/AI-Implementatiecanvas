@@ -21,7 +21,8 @@ export default function InteractiveImage() {
 
       href: "/productie",
       info: {
-        "Feature 1": "Beschrijving voor feature 1 specifiek voor productie.",
+        "Advanced manufacturing":
+          "Geavanceerde productieprocessen met AI-gestuurde automatisering en optimalisatie.",
         "Feature 2": "Uitleg over de tweede technologie.",
         "Feature 3": "En de derde beschrijving hier.",
       },
