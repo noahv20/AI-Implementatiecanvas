@@ -1,7 +1,96 @@
 import HomeButton from "@/components/homeButton";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import Image from "next/image";
 
 export default function HRPage() {
+  const hrSteps = [
+    {
+      titel: "Stap 1: Breng risico’s en gedrag in kaart",
+      beschrijving: "Identificeer waar verbeterpunten liggen, zoals:",
+      punten: [
+        "Niet dragen van PBM (helmen, brillen)",
+        "Onveilig gedrag op de werkvloer",
+        "Signalen van stress of vermoeidheid",
+      ],
+    },
+    {
+      titel: "Stap 2: Verzamel data via technologie",
+      beschrijving: "Installeer systemen om gedrag te meten via:",
+      punten: [
+        "Camera’s voor PBM-detectie",
+        "Sensoren voor werkomstandigheden",
+        "Analyse van lichaamstaal",
+        "HR-verzuimdata en feedback",
+      ],
+    },
+    {
+      titel: "Stap 3: Analyse met AI",
+      beschrijving: "Gebruik AI om data te vertalen naar:",
+      punten: [
+        "Naleving van veiligheidsregels",
+        "Herkenning van gedragspatronen",
+        "Signalering van stress of lage betrokkenheid",
+        "Voorspelling van uitvalrisico",
+      ],
+    },
+    {
+      titel: "Stap 4: Integreer in HR-processen",
+      beschrijving: "Koppel het AI-systeem aan de werkvloer voor:",
+      punten: [
+        "Realtime waarschuwingen bij onveiligheid",
+        "Inzichtelijke HR-dashboards",
+        "Datagedreven trainingen en interventies",
+      ],
+    },
+    {
+      titel: "Stap 5: Continu verbeteren",
+      beschrijving: "Gebruik inzichten om:",
+      punten: [
+        "Veiligheidsbeleid structureel te verbeteren",
+        "Medewerkerstevredenheid te verhogen",
+        "Verzuim en incidenten te verminderen",
+      ],
+    },
+  ];
+  const StepCarousel = ({ data }: { data: typeof hrSteps }) => (
+    <div className="px-12 w-full">
+      <Carousel opts={{ align: "start" }} className="w-full mx-auto">
+        <CarouselContent>
+          {data.map((stap, index) => (
+            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <div className="p-2 h-full">
+                <div className="border-3 rounded-lg border-black p-6 h-full flex flex-col bg-card">
+                  <h4 className="font-semibold mb-2">{stap.titel}</h4>
+                  <p className="text-sm mb-2">{stap.beschrijving}</p>
+                  <ul className="list-disc list-inside ml-2 space-y-1 text-sm">
+                    {stap.punten.map((punt, i) => (
+                      <li key={i}>{punt}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious
+          size="icon-lg"
+          variant="ghost"
+          className="border-black border-3"
+        />
+        <CarouselNext
+          size="icon-lg"
+          variant="ghost"
+          className="border-black border-3"
+        />
+      </Carousel>
+    </div>
+  );
   return (
     <div>
       <header className="flex items-center p-2 text-bold text-2xl border-b relative">
@@ -24,21 +113,26 @@ export default function HRPage() {
             <div className="wrap-break-word flex-1">
               <h3 className="font-semibold text-lg">Wat is Vision AI?</h3>
               <p>
-                Voorspellende productkost AI gebruikt kunstmatige intelligentie
-                en machine learning om continu de kosten van productie te
-                berekenen en te voorspellen. In plaats van te vertrouwen op
-                historische gemiddelden of vaste aannames, analyseert het
-                systeem realtime gegevens zoals materiaalprijzen, arbeidskosten,
-                machine-uren en indirecte productiekosten. Het systeem monitort
-                de kostencomponenten, evalueert patronen en afwijkingen in de
-                kostprijsontwikkeling en kan automatisch acties ondernemen door
-                kostprijsramingen aan te passen en productiebes lissingen te
-                optimaliseren. Bij SmartBikes kan deze technologie worden
-                toegepast om voor verschillende fietstypen, zoals stadsfietsen,
-                racefietsen en e-bikes, nauwkeurige kostprijsberekeningen te
-                maken. Zo houdt het systeem rekening met fluctuaties in
-                materiaalprijzen, arbeid en productiecapaciteit, waardoor het
-                bedrijf beter kan sturen op kosten en winstgevendheid.
+                De techniek betreft het gebruik van kunstmatige intelligentie
+                (AI) als HR-instrument voor het analyseren en verbeteren van
+                gedrag, veiligheid en welzijn van medewerkers op de werkvloer.
+                Deze toepassing combineert technologieën zoals camera’s
+                (computer vision), sensoren en machine learning-algoritmes om
+                continu data te verzamelen en te analyseren. AI maakt het
+                mogelijk om automatisch te detecteren of medewerkers zich houden
+                aan veiligheidsvoorschriften, zoals het dragen van persoonlijke
+                beschermingsmiddelen (PBM), en of werkzaamheden correct worden
+                uitgevoerd. Daarnaast kan de technologie gedragspatronen
+                herkennen en, op basis van lichaamstaal en
+                gezichtsuitdrukkingen, signalen van bijvoorbeeld stress,
+                vermoeidheid of betrokkenheid identificeren. Binnen deze
+                toepassing vervult AI drie kernfuncties. Ten eerste monitoring:
+                het continu observeren en controleren van gedrag en naleving van
+                regels. Ten tweede evaluatie: het analyseren van patronen en
+                structurele afwijkingen. Ten derde actie: het genereren van
+                real-time waarschuwingen of signalen bij onveilig of afwijkend
+                gedrag. Hierdoor ontstaat een datagedreven en proactieve
+                benadering van HR en werkvloerbeheer.
               </p>
             </div>
             <div className="relative h-100 w-auto flex-1">
@@ -54,22 +148,28 @@ export default function HRPage() {
             <div className="wrap-break-word flex-1">
               <h3 className="text-lg font-semibold">Waarom Vision AI?</h3>
               <p>
-                Het toepassen van voorspellende productkost AI helpt bedrijven
-                om beter grip te krijgen op productiekosten en winstgevendheid.
-                In veel organisaties worden kostprijsberekeningen vaak handmatig
-                uitgevoerd of gebaseerd op historische gemiddelden, wat leidt
-                tot onnauwkeurigheden en vertragingen in de besluitvorming. Deze
-                traditionele aanpak is meestal reactief, niet continu en
-                moeilijk schaalbaar. Voorspellende productkost AI maakt het
-                mogelijk om kostprijsberekeningen realtime te actualiseren en te
-                objectiveren. Hierdoor krijgen bedrijven nauwkeurige en actuele
-                informatie over de productiekosten, kunnen ze strategisch
-                beslissen over productlijnen en optimalisatie en sneller
-                reageren op marktveranderingen en schommelingen in
-                materiaalkosten. Voor SmartBikes betekent dit dat de kosten en
-                verkoopprijzen continu geoptimaliseerd worden, waardoor het
-                bedrijf efficiënter produceert, winstgevender is en beter kan
-                anticiperen op veranderingen in de markt.
+                Het toepassen van AI binnen HR stelt organisaties in staat om
+                veiligheid, gedrag en medewerkerstevredenheid op een objectieve
+                en continue manier te monitoren en te verbeteren. Traditionele
+                methoden, zoals handmatige controles en observaties, zijn vaak
+                subjectief, momentopnames en reactief van aard. Hierdoor worden
+                problemen vaak pas gesignaleerd nadat ze zich al hebben
+                voorgedaan. AI maakt het mogelijk om deze processen te
+                automatiseren en te objectiveren, waardoor afwijkingen direct
+                worden gedetecteerd en organisaties sneller kunnen ingrijpen.
+                Dit leidt tot een hogere mate van naleving van
+                veiligheidsvoorschriften en een afname van risicovol gedrag op
+                de werkvloer. Daarnaast biedt AI waardevolle inzichten in
+                gedragspatronen en het welzijn van medewerkers. Door vroegtijdig
+                signalen van stress, vermoeidheid of lage betrokkenheid te
+                herkennen, kunnen bedrijven preventieve maatregelen nemen. Dit
+                draagt bij aan het verminderen van ziekteverzuim en het
+                verbeteren van de algehele werkcultuur. Voor organisaties
+                resulteert dit in minder arbeidsongevallen, lagere
+                verzuimkosten, een hogere productiviteit en een efficiëntere
+                inzet van HR-interventies. Daarmee vormt AI een strategisch
+                instrument voor het realiseren van zowel operationele
+                verbeteringen als duurzame inzetbaarheid van medewerkers.
               </p>
             </div>
             <div className="relative h-100 w-auto flex-1"></div>
@@ -78,91 +178,7 @@ export default function HRPage() {
             <h3 className="text-lg font-semibold">
               Hoe implementeer je Vision AI binnen HR?
             </h3>
-            <div className="grid grid-cols-3 gap-6">
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 1: Breng kostprijscomponenten in kaart
-                </h4>
-                <p>Identificeer alle relevante kostenfactoren, zoals:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>
-                    Materiaalkosten per product (frames, wielen, remmen, etc.)
-                  </li>
-                  <li>Arbeidskosten per productielijn of taak</li>
-                  <li>
-                    Indirecte kosten en overhead (energie, onderhoud,
-                    machine-uren)
-                  </li>
-                  <li>Historische data uit ERP- en MES-systemen</li>
-                </ul>
-              </div>
-
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 2: Verzamel en organiseer data
-                </h4>
-                <p>
-                  Zorg dat alle kosteninformatie beschikbaar en gestructureerd
-                  is:
-                </p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>Realtime data over grondstoffen en materialen</li>
-                  <li>Arbeidstijden en inzet van medewerkers</li>
-                  <li>Machine-uren, energieverbruik en onderhoudskosten</li>
-                </ul>
-              </div>
-
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 3: Analyseer en voorspel met AI
-                </h4>
-                <p>
-                  Gebruik voorspellende algoritmen om patronen en toekomstige
-                  kosten te voorspellen:
-                </p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>Detecteer trends en afwijkingen in kosten</li>
-                  <li>
-                    Voorspel kostprijs voor nieuwe orders of productmodellen
-                  </li>
-                  <li>
-                    Optimaliseer productiebeslissingen op basis van
-                    kostprijsinformatie
-                  </li>
-                </ul>
-              </div>
-
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 4: Integreer in systemen en processen
-                </h4>
-                <p>
-                  Koppel het AI-systeem aan bestaande ERP- en productiesystemen
-                  zodat:
-                </p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>Kostprijsberekeningen automatisch worden bijgewerkt</li>
-                  <li>
-                    Planners en controllers realtime dashboards krijgen met
-                    inzicht in kosten en afwijkingen
-                  </li>
-                  <li>
-                    Beslissingen en interventies datagedreven kunnen worden
-                    genomen
-                  </li>
-                </ul>
-              </div>
-
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">Stap 5: Continu verbeteren</h4>
-                <p>Gebruik de inzichten van het AI-systeem om:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>Kostprijsmodellen verder te verfijnen</li>
-                  <li>Productie- en resourceplanning te optimaliseren</li>
-                  <li>Winstgevendheid te verhogen en kosten te verlagen</li>
-                </ul>
-              </div>
-            </div>
+            <StepCarousel data={hrSteps} />
           </section>
         </div>
         <div>

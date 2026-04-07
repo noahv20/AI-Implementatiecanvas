@@ -1,7 +1,93 @@
 import HomeButton from "@/components/homeButton";
+
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import Image from "next/image";
 
 export default function Kwaliteit() {
+  const visionAIData = [
+    {
+      titel: "Stap 1: Bepaal kritische kwaliteitsmomenten",
+      beschrijving: "Identificeer waar fouten het meest voorkomen, zoals:",
+      punten: [
+        "Montage van remmen",
+        "Uitlijning van wielen",
+        "Bevestiging van onderdelen",
+      ],
+    },
+    {
+      titel: "Stap 2: Verzamel data via technologie",
+      beschrijving:
+        "Installeer sensoren en camera’s op deze punten om data te verzamelen over:",
+      punten: ["Productafmetingen", "Montagekwaliteit", "Procesparameters"],
+    },
+    {
+      titel: "Stap 3: Analyse met AI",
+      beschrijving: "Gebruik AI-software om deze data te analyseren en:",
+      punten: [
+        "Afwijkingen automatisch te detecteren",
+        "Patronen te herkennen",
+        "Risico’s te voorspellen",
+      ],
+    },
+    {
+      titel: "Stap 4: Integreer in het proces",
+      beschrijving: "Koppel het AI-systeem aan de productielijn zodat:",
+      punten: [
+        "Fouten direct worden gesignaleerd",
+        "Processen automatisch kunnen worden bijgestuurd",
+        "Operatoren realtime inzicht krijgen",
+      ],
+    },
+    {
+      titel: "Stap 5: Continu verbeteren",
+      beschrijving: "Gebruik de verzamelde data voor:",
+      punten: [
+        "Structurele procesoptimalisatie",
+        "Verhogen van kwaliteitsstandaarden",
+        "Leren van eerdere afwijkingen",
+      ],
+    },
+  ];
+
+  const StepCarousel = ({ data }: { data: typeof visionAIData }) => (
+    <div className="px-12 w-full">
+      <Carousel opts={{ align: "start" }} className="w-full mx-auto">
+        <CarouselContent>
+          {data.map((stap, index) => (
+            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <div className="p-2 h-full">
+                <div className="border-3 rounded-lg border-black p-6 h-full flex flex-col bg-card">
+                  <h4 className="font-semibold mb-2">{stap.titel}</h4>
+                  <p className="text-sm mb-2">{stap.beschrijving}</p>
+                  <ul className="list-disc list-inside ml-2 space-y-1 text-sm">
+                    {stap.punten.map((punt, i) => (
+                      <li key={i}>{punt}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious
+          size="icon-lg"
+          variant="ghost"
+          className="border-black border-3"
+        />
+        <CarouselNext
+          size="icon-lg"
+          variant="ghost"
+          className="border-black border-3"
+        />
+      </Carousel>
+    </div>
+  );
   return (
     <div>
       <header className="flex items-center p-2 text-bold text-2xl border-b relative">
@@ -118,62 +204,7 @@ export default function Kwaliteit() {
               controlepunten in het productieproces. Voor het fietsenbedrijf kan
               dit als volgt worden aangepakt:
             </p>
-            <div className="grid grid-cols-3 gap-6">
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 1: Bepaal kritische kwaliteitsmomenten
-                </h4>
-                <p>Identificeer waar fouten het meest voorkomen, zoals:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>Montage van remmen</li>
-                  <li>Uitlijning van wielen</li>
-                  <li>Bevestiging van onderdelen</li>
-                </ul>
-              </div>
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 2: Verzamel data via technologie
-                </h4>
-                <p>
-                  {" "}
-                  Installeer sensoren en camera’s op deze punten om data te
-                  verzamelen over:
-                </p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>productafmetingen</li>
-                  <li>montagekwaliteit</li>
-                  <li>procesparameters</li>
-                </ul>
-              </div>
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">Stap 3: Analyse met AI</h4>
-                <p>Gebruik AI-software om deze data te analyseren en:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>Afwijkingen automatisch te detecteren</li>
-                  <li>Patronen te herkennen</li>
-                  <li>Risico’s te voorspellen</li>
-                </ul>
-              </div>
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 4: Integreer in het proces
-                </h4>
-                <p>Koppel het AI-systeem aan de productielijn zodat: </p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>Fouten direct worden gesignaleerd</li>
-                  <li>Processen automatisch kunnen worden bijgestuurd</li>
-                  <li>Operatoren realtime inzicht krijgen</li>
-                </ul>
-              </div>
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">Stap 5: Continu verbeteren</h4>
-                <p>
-                  Gebruik de verzamelde data om processen structureel te
-                  optimaliseren en kwaliteitsstandaarden verder te
-                  verhogen.{" "}
-                </p>
-              </div>
-            </div>
+            <StepCarousel data={visionAIData} />
           </section>
         </div>
         <div>

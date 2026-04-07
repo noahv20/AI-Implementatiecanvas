@@ -1,7 +1,97 @@
 import HomeButton from "@/components/homeButton";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import Image from "next/image";
 
 export default function ItPage() {
+  const aiOpsSteps = [
+    {
+      titel: "Stap 1: Breng de IT-omgeving in kaart",
+      beschrijving: "Identificeer kritische systemen zoals:",
+      punten: [
+        "ERP-systemen (productie, voorraad)",
+        "Servers en cloudomgevingen",
+        "Netwerken en databronnen",
+      ],
+    },
+    {
+      titel: "Stap 2: Verzamel data via IT-systemen",
+      beschrijving: "Verzamel data uit verschillende bronnen zoals:",
+      punten: [
+        "Server- en applicatielogs",
+        "Systeemmetrics (CPU, RAM)",
+        "Foutmeldingen en incidentdata",
+      ],
+    },
+    {
+      titel: "Stap 3: Analyse met AI",
+      titelKort: "Analyse met AI",
+      beschrijving: "Gebruik AI om:",
+      punten: [
+        "Incidenten automatisch detecteren",
+        "Afwijkingen herkennen",
+        "Storingen voorspellen",
+        "Root causes achterhalen",
+      ],
+    },
+    {
+      titel: "Stap 4: Integreer in IT-processen",
+      beschrijving: "Koppel AI aan systemen zodat:",
+      punten: [
+        "Automatische meldingen ontstaan",
+        "Systemen zichzelf herstellen",
+        "Resources automatisch schalen",
+      ],
+    },
+    {
+      titel: "Stap 5: Continu verbeteren",
+      beschrijving: "Gebruik data om:",
+      punten: [
+        "IT-processen te optimaliseren",
+        "Storingen te verminderen",
+        "Performance te verbeteren",
+      ],
+    },
+  ];
+  const StepCarousel = ({ data }: { data: typeof aiOpsSteps }) => (
+    <div className="px-12 w-full">
+      <Carousel opts={{ align: "start" }} className="w-full mx-auto">
+        <CarouselContent>
+          {data.map((stap, index) => (
+            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <div className="p-2 h-full">
+                <div className="border-3 rounded-lg border-black p-6 h-full flex flex-col bg-card">
+                  <h4 className="font-semibold mb-2">{stap.titel}</h4>
+                  <p className="text-sm mb-2">{stap.beschrijving}</p>
+                  <ul className="list-disc list-inside ml-2 space-y-1 text-sm">
+                    {stap.punten.map((punt, i) => (
+                      <li key={i}>{punt}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        {/* Zorg dat de knoppen in je componenten-map de onPointerDown fix hebben */}
+        <CarouselPrevious
+          size="icon-lg"
+          variant="ghost"
+          className="border-black border-3"
+        />
+        <CarouselNext
+          size="icon-lg"
+          variant="ghost"
+          className="border-black border-3"
+        />
+      </Carousel>
+    </div>
+  );
   return (
     <div>
       <header className="flex items-center p-2 text-bold text-2xl border-b relative">
@@ -96,66 +186,7 @@ export default function ItPage() {
               Hoe gebruik je AI-OPS?
             </h3>
 
-            <div className="grid grid-cols-3 gap-6">
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 1: Breng de IT-omgeving in kaart
-                </h4>
-                <p>Identificeer kritische systemen zoals:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>ERP-systemen (productie, voorraad, logistiek)</li>
-                  <li>Servers en cloudomgevingen</li>
-                  <li>Netwerken en databronnen</li>
-                </ul>
-              </div>
-
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 2: Verzamel data via IT-systemen
-                </h4>
-                <p>Verzamel data uit verschillende bronnen zoals:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>Server- en applicatielogs</li>
-                  <li>Systeemmetrics (CPU, geheugen, netwerkgebruik)</li>
-                  <li>Foutmeldingen en incidentdata</li>
-                </ul>
-              </div>
-
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">Stap 3: Analyse met AI</h4>
-                <p>Gebruik AI om:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>Incidenten automatisch te detecteren</li>
-                  <li>Afwijkingen en fouten te herkennen</li>
-                  <li>Storingen te voorspellen</li>
-                  <li>Root causes te achterhalen</li>
-                </ul>
-              </div>
-
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 4: Integreer in IT-processen
-                </h4>
-                <p>Koppel AI aan systemen zodat:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>Automatische meldingen ontstaan</li>
-                  <li>Systemen zichzelf kunnen herstellen</li>
-                  <li>Resources automatisch schalen</li>
-                  <li>Realtime inzicht beschikbaar is</li>
-                </ul>
-              </div>
-
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">Stap 5: Continu verbeteren</h4>
-                <p>Gebruik data om:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>IT-processen te optimaliseren</li>
-                  <li>Storingen te verminderen</li>
-                  <li>Performance te verbeteren</li>
-                  <li>Handmatig werk te verminderen</li>
-                </ul>
-              </div>
-            </div>
+            <StepCarousel data={aiOpsSteps} />
           </section>
         </div>
         <div>

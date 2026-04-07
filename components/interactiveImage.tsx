@@ -23,8 +23,10 @@ export default function InteractiveImage() {
       info: {
         "Advanced manufacturing":
           "Geavanceerde productieprocessen met AI-gestuurde automatisering en optimalisatie.",
-        "Feature 2": "Uitleg over de tweede technologie.",
-        "Feature 3": "En de derde beschrijving hier.",
+        "AI predictive maintenance":
+          "Voorspellende onderhoudsbeheer met behulp van AI.",
+        "AI production costing":
+          "Voorspel productionkosten met AI-gestuurde kostprijsberekeningen.",
       },
     },
     {
@@ -82,7 +84,8 @@ export default function InteractiveImage() {
 
       href: "/planning",
       info: {
-        "Feature 1": "Beschrijving voor feature 1 specifiek voor productie.",
+        "AI production planning":
+          "optimaliseer productieplanning met AI-gestuurde voorspellingen en aanpassingen.",
         "Feature 2": "Uitleg over de tweede technologie.",
         "Feature 3": "En de derde beschrijving hier.",
       },
@@ -119,7 +122,8 @@ export default function InteractiveImage() {
 
       href: "/hr",
       info: {
-        "Feature 1": "Beschrijving voor feature 1 specifiek voor productie.",
+        "Vision AI":
+          "Monitor en analyseer werkplekomstandigheden en ergonomie met AI-gestuurde beeldanalyse.",
         "Feature 2": "Uitleg over de tweede technologie.",
         "Feature 3": "En de derde beschrijving hier.",
       },
@@ -155,7 +159,8 @@ export default function InteractiveImage() {
       left: "54%",
       href: "/it",
       info: {
-        "Feature 1": "Beschrijving voor feature 1 specifiek voor productie.",
+        "AI-OPS":
+          "Automatiseer en optimaliseer IT-operationele processen met AI.",
         "Feature 2": "Uitleg over de tweede technologie.",
         "Feature 3": "En de derde beschrijving hier.",
       },
@@ -163,7 +168,7 @@ export default function InteractiveImage() {
   ];
 
   return (
-    <div className="max-w-4xl w-full relative aspect-[1076/511]">
+    <div className="max-w-4xl w-full relative aspect-1076/511">
       <Image
         src="/plattegrond.png"
         alt="Interactive"
@@ -189,14 +194,14 @@ export default function InteractiveImage() {
           {/* Pop-over */}
           <div className="absolute left-8 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 z-50 transition pointer-events-none w-64">
             <div className="bg-white shadow-xl rounded-lg p-4 border border-gray-100">
-              <h2 className="font-bold mb-3 text-sm text-gray-800 border-b pb-1">
+              <h2 className="font-bold mb-3 text-lg text-gray-800 border-b pb-1">
                 Digitale technologieën
               </h2>
 
               <div className="space-y-4">
                 {Object.entries(spot.info).map(([tech, description], i) => (
                   <div key={i} className="">
-                    <span className=" block font-bold text-lg">• {tech}</span>
+                    <span className=" block font-bold text-md">• {tech}</span>
                     <p className="text-gray-700 mt-1 ml-3 text-md">
                       {description}
                     </p>

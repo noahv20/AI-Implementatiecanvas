@@ -1,6 +1,96 @@
 import HomeButton from "@/components/homeButton";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Image from "next/image";
 
 export default function Planning() {
+  const planningSteps = [
+    {
+      titel: "Stap 1: Breng het proces en knelpunten in kaart",
+      beschrijving: "Identificeer waar problemen ontstaan, zoals:",
+      punten: [
+        "Lange wachttijden",
+        "Inefficiënte volgordes",
+        "Te veel handmatige herplanning",
+      ],
+    },
+    {
+      titel: "Stap 2: Verzamel data via technologie",
+      beschrijving: "Verzamel realtime data over:",
+      punten: [
+        "Openstaande orders",
+        "Actuele doorlooptijden",
+        "Beschikbare machinecapaciteit",
+        "Historische storingen",
+      ],
+    },
+    {
+      titel: "Stap 3: Analyse en optimalisatie met AI",
+      beschrijving: "Gebruik Reinforcement Learning om:",
+      punten: [
+        "Leren van eerdere planningsbeslissingen",
+        "Schema's automatisch optimaliseren",
+        "Direct aanpassen bij verstoringen",
+      ],
+    },
+    {
+      titel: "Stap 4: Integreer in het planningssysteem",
+      beschrijving: "Koppel AI aan bestaande software zodat:",
+      punten: [
+        "Realtime updates direct zichtbaar zijn",
+        "Planners dashboards krijgen met AI-advies",
+        "Besluitvorming datagedreven wordt",
+      ],
+    },
+    {
+      titel: "Stap 5: Continu verbeteren",
+      beschrijving: "Gebruik AI-inzichten voor:",
+      punten: [
+        "Structurele verkorting van doorlooptijden",
+        "Hogere flexibiliteit bij spoedorders",
+        "Optimale machinebenutting",
+      ],
+    },
+  ];
+
+  const StepCarousel = ({ data }: { data: typeof planningSteps }) => (
+    <div className="px-12 w-full">
+      <Carousel opts={{ align: "start" }} className="w-full mx-auto">
+        <CarouselContent>
+          {data.map((stap, index) => (
+            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <div className="p-2 h-full">
+                <div className="border-3 rounded-lg border-black p-6 h-full flex flex-col bg-card">
+                  <h4 className="font-semibold mb-2">{stap.titel}</h4>
+                  <p className="text-sm mb-2">{stap.beschrijving}</p>
+                  <ul className="list-disc list-inside ml-2 space-y-1 text-sm">
+                    {stap.punten.map((punt, i) => (
+                      <li key={i}>{punt}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious
+          size="icon-lg"
+          variant="ghost"
+          className="border-black border-3"
+        />
+        <CarouselNext
+          size="icon-lg"
+          variant="ghost"
+          className="border-black border-3"
+        />
+      </Carousel>
+    </div>
+  );
   return (
     <div>
       <header className="flex items-center p-2 text-bold text-2xl border-b relative">
@@ -10,9 +100,7 @@ export default function Planning() {
 
         <h1 className="flex-none text-center">Planning</h1>
 
-        <div className="flex-1 ">
-          {/* Leeg, zodat 'Inkoop' in het midden blijft */}
-        </div>
+        <div className="flex-1 "></div>
       </header>
 
       <main className="m-8 flex flex-col gap-4">
@@ -99,66 +187,7 @@ export default function Planning() {
             <h3 className="font-semibold text-lg">
               Hoe gebruik je AI Productie Planning?
             </h3>
-            <div className="grid grid-cols-3 gap-6">
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 1: Breng het planningsproces en knelpunten in kaart
-                </h4>
-                <p>Identificeer waar problemen ontstaan, zoals:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>Wachttijden</li>
-                  <li>Inefficiënte volgordes</li>
-                  <li>Veel herplanning</li>
-                </ul>
-              </div>
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 2: Verzamel data via technologie
-                </h4>
-                <p>Verzamel data over de productieprocessen, zoals:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>Orders</li>
-                  <li>Doorlooptijden</li>
-                  <li>Machinecapaciteit</li>
-                  <li>Storingen</li>
-                </ul>
-              </div>
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 3: Analyse en optimalisatie met AI
-                </h4>
-                <p>Gebruik AI om productieschema’s te optimaliseren:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>
-                    Laat het systeem leren van eerdere beslissingen en
-                    prestaties
-                  </li>
-                  <li>Pas de planning automatisch aan bij veranderingen</li>
-                </ul>
-              </div>
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 4: Integreer in het planningssysteem
-                </h4>
-                <p>Koppel AI aan bestaande planningssoftware zodat:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>Realtime updates beschikbaar zijn</li>
-                  <li>Planners dashboards en inzicht krijgen</li>
-                </ul>
-              </div>
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">Stap 5: Continu verbeteren</h4>
-                <p>
-                  Gebruik inzichten uit de data om planning verder te
-                  optimaliseren:
-                </p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>Verminder doorlooptijden</li>
-                  <li>Verhoog flexibiliteit</li>
-                  <li>Verbeter benutting van machines en capaciteit</li>
-                </ul>
-              </div>
-            </div>
+            <StepCarousel data={planningSteps} />
           </section>
         </div>
         <div>

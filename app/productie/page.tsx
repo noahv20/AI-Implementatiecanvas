@@ -1,7 +1,198 @@
 import HomeButton from "@/components/homeButton";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import Image from "next/image";
 
 export default function ProductionPage() {
+  const stappen1 = [
+    {
+      titel: "Stap 1: Breng het productieproces en knelpunten in kaart",
+      beschrijving:
+        "Identificeer waar inefficiënties of verstoringen optreden, zoals:",
+      punten: [
+        "Wachttijden tussen werkstations",
+        "Overbelasting van bepaalde machines (bottlenecks)",
+        "Vertragingen in assemblage",
+      ],
+    },
+    {
+      titel: "Stap 2: Verzamel data via technologie",
+      beschrijving:
+        "Installeer sensoren en gebruik systemen om data te verzamelen over:",
+      punten: [
+        "Productietijden per werkstation",
+        "Machineprestaties en stilstand",
+        "Doorlooptijden van producten",
+        "Output van de productielijn",
+      ],
+    },
+    {
+      titel: "Stap 3: Analyse met AI",
+      beschrijving: "Gebruik AI-software om deze data te analyseren en:",
+      punten: [
+        "Bottlenecks in de productielijn te identificeren",
+        "Productieprestaties te optimaliseren",
+        "Storingen en onderhoud te voorspellen",
+        "Productieplanning te verbeteren",
+      ],
+    },
+    {
+      titel: "Stap 4: Integreer in het productieproces",
+      beschrijving: "Koppel het AI-systeem aan de productieomgeving zodat:",
+      punten: [
+        "Productieplanning automatisch wordt aangepast",
+        "Machines efficiënter worden aangestuurd",
+        "Storingen sneller worden herkend en opgelost",
+        "Operators realtime inzicht krijgen in de productie",
+      ],
+    },
+    {
+      titel: "Stap 5: Continu verbeteren",
+      beschrijving: "Gebruik de verzamelde data en inzichten om:",
+      punten: [
+        "Productieprocessen structureel te optimaliseren",
+        "Doorlooptijden te verkorten",
+        "Stilstand te verminderen",
+        "Efficiëntie en flexibiliteit te verhogen",
+      ],
+    },
+  ];
+  const stappen2 = [
+    {
+      titel: "Stap 1: Bepaal kritische onderhoudsmomenten",
+      beschrijving:
+        "Identificeer waar storingen het meeste impact hebben, zoals:",
+      punten: [
+        "Belangrijke machines in de productielijn",
+        "Onderdelen die vaak kapot gaan",
+        "Processen waar stilstand duur is",
+      ],
+    },
+    {
+      titel: "Stap 2: Verzamel data via sensoren",
+      beschrijving:
+        "Plaats sensoren op deze punten om data te verzamelen over:",
+      punten: [
+        "Temperatuur",
+        "Trillingen",
+        "Gebruik van machines",
+        "Prestaties van onderdelen",
+      ],
+    },
+    {
+      titel: "Stap 3: Analyse met AI",
+      beschrijving: "Gebruik software om de data te analyseren en:",
+      punten: [
+        "Afwijkingen te herkennen",
+        "Patronen in storingen te ontdekken",
+        "Te voorspellen wanneer onderhoud nodig is",
+      ],
+    },
+    {
+      titel: "Stap 4: Integreer in het onderhoudsproces",
+      beschrijving: "Koppel het systeem aan de dagelijkse operatie zodat:",
+      punten: [
+        "Storingen vroeg worden gesignaleerd",
+        "Onderhoud op tijd wordt ingepland",
+        "Operators meldingen krijgen bij afwijkingen",
+      ],
+    },
+    {
+      titel: "Stap 5: Continu verbeteren",
+      beschrijving: "Gebruik de verzamelde data om:",
+      punten: [
+        "Onderhoudsplannen te verbeteren",
+        "Oorzaken van storingen te achterhalen",
+        "Processen structureel te optimaliseren",
+      ],
+    },
+  ];
+
+  // Data voor sectie 3
+  const stappen3 = [
+    {
+      titel: "Stap 1: Data identificeren en verzamelen",
+      beschrijving:
+        "Verzamel relevante gegevens voor productkostberekening, zoals:",
+      punten: [
+        "Materiaalkosten (frames, wielen, etc.)",
+        "Arbeidskosten per productielijn",
+        "Indirecte kosten en overhead",
+        "Integratie uit ERP- en MES-systemen",
+      ],
+    },
+    {
+      titel: "Stap 2: Selecteren en trainen van AI-modellen",
+      beschrijving: "Gebruik AI om toekomstige productiekosten te voorspellen:",
+      punten: [
+        "Voorspellende algoritmen (regressie, random forests)",
+        "Trainen op historische gegevens voor nauwkeurigheid",
+      ],
+    },
+    {
+      titel: "Stap 3: Integreren in bestaande systemen",
+      beschrijving: "Koppel AI-modellen aan ERP zodat:",
+      punten: [
+        "Data realtime wordt bijgewerkt",
+        "Kostprijsberekeningen automatisch geüpdatet worden",
+      ],
+    },
+    {
+      titel: "Stap 4: Dashboards en rapportages",
+      beschrijving: "Visualiseer en ondersteun besluitvorming met:",
+      punten: [
+        "Voorspelde vs werkelijke kosten",
+        "Informatie voor snelle beslissingen door planners",
+      ],
+    },
+    {
+      titel: "Stap 5: Continue evaluatie",
+      beschrijving: "Monitor en verbeter AI-modellen continu zodat:",
+      punten: [
+        "Modellen aangepast worden aan nieuwe data",
+        "Nauwkeurigheid van voorspellingen verbetert",
+        "Productieplanning geoptimaliseerd wordt",
+      ],
+    },
+  ];
+  const StepCarousel = ({ data }: { data: typeof stappen1 }) => (
+    <div className="px-12 w-full">
+      <Carousel opts={{ align: "start" }} className="w-full mx-auto">
+        <CarouselContent>
+          {data.map((stap, index) => (
+            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <div className="p-2 h-full">
+                <div className="border-3 rounded-lg border-black p-6 h-full flex flex-col bg-card">
+                  <h4 className="font-semibold mb-2">{stap.titel}</h4>
+                  <p className="text-sm mb-2">{stap.beschrijving}</p>
+                  <ul className="list-disc list-inside ml-2 space-y-1 text-sm">
+                    {stap.punten.map((punt, i) => (
+                      <li key={i}>{punt}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious
+          size="icon-lg"
+          variant="ghost"
+          className="border-black border-3"
+        />
+        <CarouselNext
+          size="icon-lg"
+          variant="ghost"
+          className="border-black border-3"
+        />
+      </Carousel>
+    </div>
+  );
   return (
     <div>
       <header className="flex items-center p-2 text-bold text-2xl border-b relative">
@@ -97,69 +288,7 @@ export default function ProductionPage() {
             <h3 className="font-semibold pb-4 text-lg">
               Hoe gebruik je Advanced manufacturing?
             </h3>
-            <div className=" grid grid-cols-3 gap-6">
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 1: Breng het productieproces en knelpunten in kaart
-                </h4>
-                <p>
-                  Identificeer waar inefficiënties of verstoringen optreden,
-                  zoals:
-                </p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li> Wachttijden tussen werkstations </li>{" "}
-                  <li> Overbelasting van bepaalde machines (bottlenecks) </li>{" "}
-                  <li> Vertragingen in assemblage </li>{" "}
-                </ul>
-              </div>
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 2: Verzamel data via technologie
-                </h4>
-                <p>
-                  Installeer sensoren en gebruik systemen om data te verzamelen
-                  over:
-                </p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li> Productietijden per werkstation </li>
-                  <li> Machineprestaties en stilstand </li>
-                  <li> Doorlooptijden van producten </li>
-                  <li> Output van de productielijn </li>
-                </ul>
-              </div>
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">Stap 3: Analyse met AI</h4>{" "}
-                <p> Gebruik AI-software om deze data te analyseren en:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li> Bottlenecks in de productielijn te identificeren </li>
-                  <li> Productieprestaties te optimaliseren </li>
-                  <li> Storingen en onderhoud te voorspellen </li>
-                  <li> Productieplanning te verbeteren </li>
-                </ul>
-              </div>
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 4: Integreer in het productieproces
-                </h4>
-                <p>Koppel het AI-systeem aan de productieomgeving zodat:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li> Productieplanning automatisch wordt aangepast </li>
-                  <li> Machines efficiënter worden aangestuurd </li>
-                  <li> Storingen sneller worden herkend en opgelost </li>
-                  <li> Operators realtime inzicht krijgen in de productie </li>
-                </ul>
-              </div>
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">Stap 5: Continu verbeteren</h4>
-                <p>Gebruik de verzamelde data en inzichten om:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li> Productieprocessen structureel te optimaliseren </li>
-                  <li> Doorlooptijden te verkorten </li>
-                  <li> Stilstand te verminderen </li>
-                  <li> Efficiëntie en flexibiliteit te verhogen </li>
-                </ul>
-              </div>
-            </div>
+            <StepCarousel data={stappen1} />
           </section>
         </div>
         <div className="flex flex-col gap-4 pb-4">
@@ -273,82 +402,16 @@ export default function ProductionPage() {
             <h3 className="font-semibold pb-4 text-lg">
               Hoe gebruik je AI predictive maintenance?
             </h3>
-            <div className="grid grid-cols-3 gap-6">
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 1: Bepaal kritische onderhoudsmomenten
-                </h4>
-                <p>
-                  Identificeer waar storingen het meeste impact hebben, zoals:
-                </p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>belangrijke machines in de productielijn</li>
-                  <li>onderdelen die vaak kapot gaan</li>
-                  <li>processen waar stilstand duur is</li>
-                </ul>
-              </div>
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 2: Verzamel data via sensoren
-                </h4>
-                <p>
-                  Plaats sensoren op deze punten om data te verzamelen over:
-                </p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>temperatuur</li>
-                  <li>trillingen</li>
-                  <li>gebruik van machines</li>
-                  <li>prestaties van onderdelen</li>
-                </ul>
-                <p>Deze data wordt automatisch opgeslagen en doorgestuurd.</p>
-              </div>
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">Stap 3: Analyse met AI</h4>
-                <p>Gebruik software om de data te analyseren en:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>afwijkingen te herkennen</li>
-                  <li>patronen in storingen te ontdekken</li>
-                  <li>
-                    te voorspellen wanneer een machine onderhoud nodig heeft
-                  </li>
-                </ul>
-                <p>Het systeem kan ook:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>alarmen vertalen naar concrete storingen</li>
-                  <li>risico’s inschatten</li>
-                </ul>
-              </div>
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 4: Integreer in het onderhoudsproces
-                </h4>
-                <p>Koppel het systeem aan de dagelijkse operatie zodat:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>storingen vroeg worden gesignaleerd</li>
-                  <li>onderhoud op tijd wordt ingepland</li>
-                  <li>operators meldingen krijgen bij afwijkingen</li>
-                </ul>
-                <p>Hierdoor kan sneller worden ingegrepen.</p>
-              </div>
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">Stap 5: Continu verbeteren</h4>
-                <p>Gebruik de verzamelde data om:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>onderhoudsplannen te verbeteren</li>
-                  <li>oorzaken van storingen te achterhalen</li>
-                  <li>processen structureel te optimaliseren</li>
-                </ul>
-                <p>
-                  Het systeem wordt hierdoor steeds slimmer en nauwkeuriger.
-                </p>
-              </div>
-            </div>
+            <StepCarousel data={stappen2} />
           </section>
         </div>
         <div className="flex flex-col gap-4 pb-4">
           <h2 className="text-2xl font-bold">3. Productie costing </h2>
           <section className="flex flex-row items-start pb-4">
             <div className="wrap-break-word flex-1">
+              <h3 className="text-lg font-semibold">
+                Wat is productie costing AI?
+              </h3>
               <p>
                 Voorspellende productkost AI gebruikt kunstmatige intelligentie
                 en machine learning om dynamisch en nauwkeurig productiekosten
@@ -366,10 +429,20 @@ export default function ProductionPage() {
                 productiecapaciteit.{" "}
               </p>
             </div>
-            <div className="relative h-100 w-auto flex-1"></div>
+            <div className="relative h-100 w-auto flex-1">
+              <Image
+                src="/Productie 3.1.png"
+                alt="Productie 3.1  "
+                fill
+                className="object-contain"
+              />
+            </div>
           </section>
-          <section className="flex flex-row-reverse items-start pb-4">
+          <section className="flex  items-start pb-4">
             <div className="wrap-break-word flex-1">
+              <h3 className="text-lg font-semibold">
+                Waarom productie costing AI?
+              </h3>
               <p>
                 Bedrijven profiteren van voorspellende productkost AI doordat
                 het systeem realtime kostprijsberekeningen mogelijk maakt.
@@ -387,7 +460,6 @@ export default function ProductionPage() {
                 het bedrijf efficiënter en winstgevender produceert.{" "}
               </p>
             </div>
-            <div className="relative h-100 w-auto flex-1"></div>
           </section>
           <section className="flex items-start flex-col pb-4">
             <h3 className="font-semibold text-lg">
@@ -400,88 +472,7 @@ export default function ProductionPage() {
               aangepakt:
             </p>
 
-            <div className="grid grid-cols-3 gap-6">
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 1: Data identificeren en verzamelen
-                </h4>
-                <p>
-                  Verzamel relevante gegevens voor productkostberekening, zoals:
-                </p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>Materiaalkosten (frames, wielen, remmen, etc.)</li>
-                  <li>Arbeidskosten per productielijn of taak</li>
-                  <li>
-                    Indirecte kosten en overhead (energie, onderhoud,
-                    machine-uren)
-                  </li>
-                  <li>Integratie van data uit ERP- en MES-systemen</li>
-                </ul>
-              </div>
-
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 2: Selecteren en trainen van AI-modellen
-                </h4>
-                <p>
-                  Gebruik AI om toekomstige productiekosten nauwkeurig te
-                  voorspellen:
-                </p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>
-                    Voorspellende algoritmen zoals regressie, random forests of
-                    neurale netwerken
-                  </li>
-                  <li>
-                    Train modellen op historische gegevens om nauwkeurige
-                    voorspellingen te maken
-                  </li>
-                </ul>
-              </div>
-
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 3: Integreren in bestaande systemen
-                </h4>
-                <p>Koppel AI-modellen aan ERP zodat:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>Data realtime wordt bijgewerkt</li>
-                  <li>
-                    Kostprijsberekeningen automatisch geüpdatet worden bij
-                    nieuwe orders of prijsveranderingen
-                  </li>
-                </ul>
-              </div>
-
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 4: Dashboards en rapportages ontwikkelen
-                </h4>
-                <p>Visualiseer en ondersteun besluitvorming met:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>Voorspelde kosten, werkelijke kosten en afwijkingen</li>
-                  <li>
-                    Informatie voor planners en controllers om snel beslissingen
-                    te nemen
-                  </li>
-                </ul>
-              </div>
-
-              <div className="border-3 rounded-lg border-black p-2">
-                <h4 className="font-semibold">
-                  Stap 5: Continue evaluatie en optimalisatie
-                </h4>
-                <p>Monitor en verbeter AI-modellen continu zodat:</p>
-                <ul className="list-disc list-inside ml-4 space-y-1">
-                  <li>
-                    Modellen aangepast worden op basis van nieuwe data en
-                    veranderende productieprocessen
-                  </li>
-                  <li>Nauwkeurigheid van kostprijsvoorspellingen verbetert</li>
-                  <li>Productieplanning geoptimaliseerd wordt</li>
-                </ul>
-              </div>
-            </div>
+            <StepCarousel data={stappen3} />
           </section>
         </div>
       </main>
