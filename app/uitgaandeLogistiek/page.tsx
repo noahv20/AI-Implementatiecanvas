@@ -153,7 +153,7 @@ export default function UitgaandeLogistiekPage() {
         </div>
       </header>
 
-      <main className="m-12 mr-16 flex flex-col gap-4">
+      <main className="m-16 flex flex-col gap-4">
         <div className="flex flex-col gap-4 pb-4">
           <h2 id="sco-ai" className="text-2xl font-bold pb-4">
             1. SCO-AI (Predictive Analytics)
