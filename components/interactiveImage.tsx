@@ -49,6 +49,8 @@ export default function InteractiveImage() {
       info: {
         "AI Inkomende Logistiek":
           "Optimaliseer inkomende logistiek met AI-gestuurde vraagvoorspelling en voorraadbeheer.",
+        "Neural Machine Translation (NMT)":
+          "Automatiseer vertalingen en communicatie met AI-gestuurde neurale machinale vertaling.",
       },
     },
     {
@@ -60,6 +62,8 @@ export default function InteractiveImage() {
       info: {
         "AI Inkoop":
           "Optimaliseer inkoopprocessen met AI-gestuurde vraagvoorspelling en leveranciersbeheer.",
+        "Neural Machine Translation (NMT)":
+          "Automatiseer vertalingen en communicatie met AI-gestuurde neurale machinale vertaling.",
       },
     },
     {
@@ -71,6 +75,8 @@ export default function InteractiveImage() {
       info: {
         "SCO-AI (Predictive Analytics)":
           "Optimaliseer distributie en logistiek met AI-gestuurde voorspellende analyses.",
+        "Neural Machine Translation (NMT)":
+          "Automatiseer vertalingen en communicatie met AI-gestuurde neurale machinale vertaling.",
       },
     },
     {
@@ -189,7 +195,7 @@ export default function InteractiveImage() {
           />
 
           {/* Pop-over */}
-          <div className="absolute left-8 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 z-50 transition pointer-events-none w-64">
+          <div className="absolute left-8 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 z-50 transition pointer-events-none w-96">
             <div className="bg-white shadow-xl rounded-lg p-4 border border-gray-100">
               <h2 className="font-bold mb-3 text-lg text-gray-800 border-b pb-1">
                 Digitale technologieën
