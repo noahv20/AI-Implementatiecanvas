@@ -91,7 +91,63 @@ export default function Planning() {
     },
   ];
 
-  const StepCarousel = ({ data }: { data: typeof planningSteps }) => (
+  const scoAiSteps = [
+    {
+      titel: "Stap 1: Breng het planningsproces in kaart",
+      beschrijving: "Identificeer hoe planning momenteel verloopt, zoals:",
+      punten: [
+        "Productieplanning per producttype",
+        "Capaciteit van machines en personeel",
+        "Doorlooptijden van orders",
+      ],
+    },
+    {
+      titel: "Stap 2: Verzamel data uit verschillende bronnen",
+      beschrijving: "Zorg dat data beschikbaar is over:",
+      punten: [
+        "Orders en klantvraag",
+        "Voorraad en beschikbare materialen",
+        "Productiecapaciteit en bezettingsgraad",
+        "Historische planningsdata en prestaties",
+      ],
+    },
+    {
+      titel: "Stap 3: Analyse met AI (SCO-AI / predictive analytics)",
+      beschrijving: "Gebruik AI binnen SCO-AI om deze data te analyseren en:",
+      punten: [
+        "Vraag en productie op elkaar af te stemmen",
+        "Capaciteit efficiënt in te plannen",
+        "Doorlooptijden te voorspellen",
+        "Knelpunten en vertragingen vroegtijdig te signaleren",
+      ],
+    },
+    {
+      titel: "Stap 4: Integreer in planningsprocessen",
+      beschrijving: "Koppel het AI-systeem aan de planning zodat:",
+      punten: [
+        "Productieplanning automatisch wordt aangepast",
+        "Prioriteiten dynamisch worden bepaald",
+        "Resources optimaal worden verdeeld",
+        "Beslissingen datagedreven worden genomen",
+      ],
+    },
+    {
+      titel: "Stap 5: Continu verbeteren",
+      beschrijving: "Gebruik de inzichten om:",
+      punten: [
+        "Planningsprocessen te optimaliseren",
+        "Efficiëntie te verhogen",
+        "Doorlooptijden te verkorten",
+        "Flexibiliteit in productie te verbeteren",
+      ],
+    },
+  ];
+
+  const StepCarousel = ({
+    data,
+  }: {
+    data: typeof planningSteps | typeof scoAiSteps;
+  }) => (
     <div className="px-12 w-full">
       <Carousel opts={{ align: "start" }} className="w-full mx-auto">
         <CarouselContent>
@@ -127,7 +183,6 @@ export default function Planning() {
 
   return (
     <div>
-      {/* HEADER */}
       <header className="relative flex items-center justify-center border-b overflow-hidden h-80">
         <Image
           src="/Banner planning.png"
@@ -149,11 +204,16 @@ export default function Planning() {
             >
               1. AI productie planning
             </a>
+            <a
+              href="#sco-ai-planning"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-semibold transition-all shadow-lg border border-blue-400"
+            >
+              2. SCO-AI
+            </a>
           </div>
         </div>
       </header>
 
-      {/* MAIN */}
       <main className="m-16 flex flex-col gap-4">
         <div className="flex flex-col gap-4 pb-4">
           <h2 id="ai-planning" className="text-2xl font-bold pb-4">
@@ -254,6 +314,112 @@ export default function Planning() {
             <Link
               className="text-blue-500 hover:underline"
               href="https://doi.org/10.1007/s10845-025-02585-6"
+            >
+              Lees meer...
+            </Link>
+          </section>
+        </div>
+
+        <div className="flex flex-col gap-4 pb-4">
+          <h2 id="sco-ai-planning" className="text-2xl font-bold pb-4">
+            2. SCO-AI (Predictive Analytics)
+          </h2>
+
+          <section className="flex flex-row items-start">
+            <div className="wrap-break-words flex-1">
+              <h3 className="font-semibold text-lg">Wat is de techniek?</h3>
+              <p>
+                AI-gedreven predictive analytics, ook wel aangeduid als SCO-AI
+                (Supply Chain Optimization using Artificial Intelligence), is
+                een technologie waarmee planningsprocessen worden aangestuurd op
+                basis van realtime data en voorspellingen. Binnen de afdeling
+                planning betekent dit dat productie- en leveringsplanningen niet
+                langer alleen worden gebaseerd op vaste schema’s of historische
+                gegevens, maar continu worden geoptimaliseerd op basis van
+                actuele informatie.
+              </p>
+              <p>
+                Het systeem verzamelt data uit verschillende bronnen, zoals
+                orderinformatie, voorraadniveaus, productiecapaciteit en externe
+                factoren. Deze data wordt vervolgens geanalyseerd met behulp van
+                machine learningmodellen die patronen herkennen en
+                voorspellingen doen over vraag, doorlooptijden en benodigde
+                capaciteit. Hierdoor ontstaat een dynamisch planningssysteem dat
+                zich continu aanpast aan veranderingen en verstoringen.
+              </p>
+              <p>
+                In tegenstelling tot AI-technieken zoals reinforcement learning,
+                die zelfstandig beslissingen leren nemen door ervaring, richt
+                SCO-AI zich primair op het analyseren en voorspellen van data om
+                planningsprocessen te ondersteunen. Dit betekent dat SCO-AI
+                vooral helpt bij het maken van beter onderbouwde
+                planningsbeslissingen, terwijl de uiteindelijke aansturing vaak
+                nog bij planners of bestaande systemen ligt.
+              </p>
+              <p>
+                Bij SmartBikes kan SCO-AI worden toegepast om de planning van
+                stadsfietsen, e-bikes en racefietsen te optimaliseren. Het
+                systeem analyseert binnenkomende orders en bepaalt wanneer
+                producten geproduceerd en geleverd moeten worden, rekening
+                houdend met capaciteit en prioriteiten.
+              </p>
+            </div>
+
+            <div className="relative h-100 w-auto flex-1"></div>
+          </section>
+
+          <section className="flex flex-row-reverse items-start pb-4">
+            <div className="wrap-break-words flex-1">
+              <h3 className="text-lg font-semibold">
+                Waarom zouden bedrijven dit moeten toepassen?
+              </h3>
+              <p>
+                Het toepassen van SCO-AI binnen de planning maakt het mogelijk
+                om processen beter op elkaar af te stemmen en efficiënter te
+                plannen. Traditionele planningsmethoden zijn vaak statisch en
+                reactief, waardoor knelpunten ontstaan bij veranderingen in
+                vraag, capaciteit of leveringen.
+              </p>
+              <p>
+                Door gebruik te maken van predictive analytics binnen SCO-AI
+                kunnen bedrijven vooruitkijken en beter anticiperen op deze
+                veranderingen. Hierdoor kunnen productie en logistiek beter op
+                elkaar worden afgestemd en worden planningsfouten verminderd.
+                Daarnaast zorgt het gebruik van data ervoor dat resources zoals
+                machines en personeel optimaal worden benut.
+              </p>
+              <p>Voor SmartBikes betekent dit bijvoorbeeld dat:</p>
+              <ul className="list-disc list-inside ml-4 space-y-1">
+                <li>productie beter aansluit op de vraag</li>
+                <li>wachttijden en stilstand worden verminderd</li>
+                <li>
+                  leveringen realistischer en betrouwbaarder worden ingepland
+                </li>
+              </ul>
+              <p>
+                Daarnaast kan het bedrijf beter inspelen op pieken in de vraag,
+                bijvoorbeeld in drukke seizoenen, doordat de planning hier
+                vooraf op wordt aangepast.
+              </p>
+            </div>
+
+            <div className="relative h-100 w-auto flex-1"></div>
+          </section>
+
+          <section className="flex items-start flex-col pb-4">
+            <h3 className="font-semibold text-center w-full pb-1 text-lg">
+              Hoe implementeer je SCO-AI?
+            </h3>
+
+            <p className="text-center w-full pb-2">Bekijk deze 5 stappen:</p>
+            <StepCarousel data={scoAiSteps} />
+          </section>
+          <section className="flex flex-row gap-4 items-center pb-20">
+            <h3 className="font-semibold text-lg">Bron:</h3>
+
+            <Link
+              className="text-blue-500 hover:underline"
+              href="https://doi.org/10.56294/dm2024395"
             >
               Lees meer...
             </Link>

@@ -1,6 +1,5 @@
 "use client";
 
-import HomeButton from "@/components/homeButton";
 import {
   Carousel,
   CarouselContent,
@@ -16,7 +15,6 @@ import { useState, useEffect } from "react";
 export default function CustomerServicePage() {
   const [showScrollTopButton, setShowScrollTopButton] = useState(false);
 
-  // Scroll detectie voor de knop
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 300) {
@@ -30,7 +28,6 @@ export default function CustomerServicePage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Vloeiend naar boven scrollen en URL opschonen
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -93,7 +90,63 @@ export default function CustomerServicePage() {
     },
   ];
 
-  const StepCarousel = ({ data }: { data: typeof chatbotSteps }) => (
+  const nmtSteps = [
+    {
+      titel: "Stap 1: Analyseer klantcommunicatie",
+      beschrijving: "Breng in kaart welke communicatie plaatsvindt, zoals:",
+      punten: [
+        "Veelgestelde klantvragen",
+        "Websitecontent en productinformatie",
+        "Klantcontact via chat of e-mail",
+      ],
+    },
+    {
+      titel: "Stap 2: Verzamel en structureer content",
+      beschrijving: "Zorg dat relevante informatie beschikbaar is, zoals:",
+      punten: [
+        "FAQ’s en standaardantwoorden",
+        "Productbeschrijvingen",
+        "Klantinteracties en eerdere gesprekken",
+      ],
+    },
+    {
+      titel: "Stap 3: Implementatie van AI (NMT + chatbot)",
+      beschrijving: "Gebruik NMT in combinatie met een chatbot om:",
+      punten: [
+        "Klantvragen automatisch te vertalen",
+        "Antwoorden in de juiste taal te genereren",
+        "Meertalige communicatie mogelijk te maken",
+        "Realtime interactie met klanten te ondersteunen",
+      ],
+    },
+    {
+      titel: "Stap 4: Integratie in de website en systemen",
+      beschrijving:
+        "Koppel het systeem aan de website en customer service tools zodat:",
+      punten: [
+        "Klanten direct via de website geholpen worden",
+        "Vertalingen automatisch plaatsvinden",
+        "Medewerkers ondersteuning krijgen bij klantvragen",
+        "Alle communicatie centraal wordt opgeslagen",
+      ],
+    },
+    {
+      titel: "Stap 5: Continu verbeteren",
+      beschrijving: "Gebruik de data om:",
+      punten: [
+        "Antwoorden te verbeteren",
+        "Klantbehoeftes beter te begrijpen",
+        "Vertalingen nauwkeuriger te maken",
+        "De klantenservice verder te optimaliseren",
+      ],
+    },
+  ];
+
+  const StepCarousel = ({
+    data,
+  }: {
+    data: typeof chatbotSteps | typeof nmtSteps;
+  }) => (
     <div className="px-12 w-full">
       <Carousel opts={{ align: "start" }} className="w-full mx-auto">
         <CarouselContent>
@@ -149,6 +202,12 @@ export default function CustomerServicePage() {
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-semibold transition-all shadow-lg border border-blue-400 cursor-pointer"
             >
               1. AI-Chatbot
+            </a>
+            <a
+              href="#nmt"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-semibold transition-all shadow-lg border border-blue-400 cursor-pointer"
+            >
+              2. Neural Machine Translation
             </a>
           </div>
         </div>
@@ -220,7 +279,7 @@ export default function CustomerServicePage() {
             </div>
           </section>
 
-          <section className="flex items-start  flex-col">
+          <section className="flex items-start flex-col">
             <h3 className="font-semibold text-center w-full pb-1 text-lg">
               Hoe gebruik je AI-Chatbot?
             </h3>
@@ -232,6 +291,101 @@ export default function CustomerServicePage() {
           <section className="flex flex-row gap-4 items-center pb-20">
             <h3 className="font-semibold text-lg">Bron:</h3>
             <Link href="#" className="text-blue-500 hover:underline">
+              {/*TODO: Link toevoegen */}
+              Lees meer...
+            </Link>
+          </section>
+        </div>
+
+        <div id="nmt" className="flex flex-col gap-4 pb-4">
+          <h2 className="text-2xl font-bold pb-4">
+            2. Neural Machine Translation (NMT)
+          </h2>
+
+          <section className="flex flex-row items-start">
+            <div className="wrap-break-words flex-1">
+              <h3 className="font-semibold text-lg">Wat is de techniek?</h3>
+              <p>
+                Neural Machine Translation (NMT) is een AI-techniek die wordt
+                gebruikt om teksten en communicatie automatisch te vertalen naar
+                verschillende talen. Deze techniek maakt gebruik van neurale
+                netwerken die volledige zinnen analyseren en vertalen, waarbij
+                rekening wordt gehouden met context in plaats van losse woorden.
+              </p>
+              <p>
+                Binnen de customer service wordt NMT toegepast om communicatie
+                met klanten in verschillende talen mogelijk te maken. In
+                combinatie met een AI-chatbot kan deze technologie realtime
+                vragen van klanten vertalen en beantwoorden, waardoor bedrijven
+                internationale klanten direct kunnen helpen.
+              </p>
+              <p>
+                Bij SmartBikes kan deze techniek bijvoorbeeld worden ingezet op
+                de website, waar een chatbot automatisch vragen van klanten
+                vertaalt en beantwoordt. Een klant uit Duitsland kan
+                bijvoorbeeld een vraag stellen in het Duits, waarna het systeem
+                deze vertaalt, verwerkt en een passend antwoord teruggeeft in
+                dezelfde taal.
+              </p>
+            </div>
+
+            <div className="relative flex-1 h-100 w-auto"></div>
+          </section>
+
+          <section className="flex flex-row-reverse items-start pb-4">
+            <div className="wrap-break-words flex-1">
+              <h3 className="font-semibold text-lg">
+                Waarom zouden bedrijven dit moeten toepassen?
+              </h3>
+              <p>
+                Het toepassen van NMT binnen de customer service maakt het
+                mogelijk om klanten wereldwijd snel en efficiënt te
+                ondersteunen. Traditioneel zijn bedrijven afhankelijk van
+                medewerkers die meerdere talen spreken, wat tijdrovend en
+                kostbaar is.
+              </p>
+              <p>
+                Met AI-gedreven vertaling kunnen bedrijven klanten direct helpen
+                in hun eigen taal, zonder vertraging. Dit verhoogt de
+                klanttevredenheid en maakt het mogelijk om internationale
+                markten beter te bedienen.
+              </p>
+              <p>Voor SmartBikes betekent dit bijvoorbeeld dat:</p>
+              <ul className="list-disc list-inside ml-4 space-y-1">
+                <li>klanten wereldwijd direct geholpen kunnen worden</li>
+                <li>taalbarrières worden weggenomen</li>
+                <li>responstijden van de klantenservice worden verkort</li>
+              </ul>
+              <p>
+                Daarnaast zorgt deze techniek ervoor dat de communicatie
+                consistenter verloopt, doordat antwoorden automatisch worden
+                gegenereerd en vertaald.
+              </p>
+              <p>
+                Wel is het belangrijk om rekening te houden met beperkingen van
+                AI, zoals het minder goed begrijpen van culturele nuances of
+                complexe zinnen. Daarom blijft menselijke controle bij complexe
+                klantvragen belangrijk.
+              </p>
+            </div>
+
+            <div className="relative flex-1 h-100 w-auto"></div>
+          </section>
+
+          <section className="flex items-start flex-col">
+            <h3 className="font-semibold text-center w-full pb-1 text-lg">
+              Hoe implementeer je NMT?
+            </h3>
+            <p className="text-center w-full pb-2">Bekijk deze 5 stappen:</p>
+
+            <StepCarousel data={nmtSteps} />
+          </section>
+          <section className="flex flex-row gap-4 items-center pb-20">
+            <h3 className="font-semibold text-lg">Bron:</h3>
+            <Link
+              href=" https://egarp.lt/index.php/aghel/article/view/105/108"
+              className="text-blue-500 hover:underline"
+            >
               Lees meer...
             </Link>
           </section>

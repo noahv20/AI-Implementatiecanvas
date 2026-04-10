@@ -1,6 +1,4 @@
 "use client";
-
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -136,9 +134,8 @@ export default function InteractiveImage() {
 
       href: "/r&d",
       info: {
-        "Feature 1": "Beschrijving voor feature 1 specifiek voor productie.",
-        "Feature 2": "Uitleg over de tweede technologie.",
-        "Feature 3": "En de derde beschrijving hier.",
+        "Generative Design (AI-gedreven productontwikkeling)":
+          "AI-gestuurde generatieve ontwerptechnieken voor innovatieve productontwikkeling.",
       },
     },
     {
@@ -188,7 +185,7 @@ export default function InteractiveImage() {
                 {Object.entries(spot.info).map(([tech, description], i) => (
                   <div key={i} className="">
                     <span className=" block font-bold text-md">• {tech}</span>
-                    <p className="text-gray-700 mt-1 ml-3 text-md">
+                    <p className="text-gray-700 mt-1 ml-3 text-sm">
                       {description}
                     </p>
                   </div>
